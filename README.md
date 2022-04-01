@@ -1,38 +1,18 @@
-# pds/skeleton
+# lojavirtual/pagarme
 
-This publication describes a standard filesystem skeleton suitable for all PHP
-packages.
+Integração com PagarMe na API versão 5.
 
-## Summary
+## Como utilizar
 
-A package MUST use these names for these root-level directories:
+```php
 
-| If a package has a root-level directory for ... | ... then it MUST be named: |
-| ----------------------------------------------- | -------------------------- |
-| documentation files                             | `docs/`                    |
-| PHP source code                                 | `src/`                     |
-| test code                                       | `tests/`                   |
+use LojaVirtual\PagarMe;
 
-### docs/
+$pagarMe = new PagarMe($publicKey, $secretKey);
+$payload = array('seu-payload-aqui');
+$response = $pagarMe
+    ->order()
+    ->insert($payload);
+```
 
-If the package provides a root-level directory for documentation files, it MUST
-be named `docs/`.
-
-This publication does not otherwise define the structure and contents of the
-directory.
-
-### src/
-
-If the package provides a root-level directory for PHP source code files, it
-MUST be named `src/`.
-
-This publication does not otherwise define the structure and contents of the
-directory.
-
-### tests/
-
-If the package provides a root-level directory for test files, it MUST be named
-`tests/`.
-
-This publication does not otherwise define the structure and contents of the
-directory.
+### Enjoy it :)
