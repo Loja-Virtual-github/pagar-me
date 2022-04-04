@@ -9,7 +9,7 @@ class PagarMe
     /**
      * @var
      */
-    const BASE_URI = 'https://api.pagar.me/core/v5';
+    const BASE_URI = 'https://api.pagar.me/core/v5/';
 
     /**
      * The constructor
