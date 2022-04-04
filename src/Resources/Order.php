@@ -22,7 +22,9 @@ class Order extends AbstractResource implements ResourceInterface
                 ->request(
                     self::POST,
                     self::ENDPOINT,
-                    $payload
+                    array(
+                        "json" => $payload
+                    )
                 );
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
