@@ -6,7 +6,7 @@ use LojaVirtual\PagarMe\ResponseHandler;
 
 class Order extends AbstractResource implements ResourceInterface
 {
-    const ENDPOINT = 'orders';
+    const ENDPOINT = 'orders/';
 
     /**
      * Insert a new order
