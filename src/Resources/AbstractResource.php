@@ -59,7 +59,7 @@ class AbstractResource
      * @return ResponseHandler
      * @throws \Exception
      */
-    public function request($method, $endpoint, array $options)
+    public function request($method, $endpoint, array $options = [])
     {
         try {
             $response = $this

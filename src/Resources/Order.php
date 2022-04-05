@@ -6,6 +6,9 @@ use LojaVirtual\PagarMe\ResponseHandler;
 
 class Order extends AbstractResource implements ResourceInterface
 {
+    /**
+     * @var string
+     */
     const ENDPOINT = 'orders';
 
     /**
@@ -24,6 +27,30 @@ class Order extends AbstractResource implements ResourceInterface
                     self::ENDPOINT,
                     array(
                         "json" => $payload
+                    )
+                );
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * Fetch order by id
+     *
+     * @param $id
+     * @return ResponseHandler
+     * @throws \Exception
+     */
+    public function fetchByID($id)
+    {
+        try {
+            return $this
+                ->request(
+                    self::GET,
+                    sprintf(
+                        "%s/%s",
+                        self::ENDPOINT,
+                        $id
                     )
                 );
         } catch (\Exception $e) {
