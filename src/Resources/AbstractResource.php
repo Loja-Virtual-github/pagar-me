@@ -3,6 +3,7 @@
 namespace LojaVirtual\PagarMe\Resources;
 
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\ClientException;
 use LojaVirtual\PagarMe\PagarMe;
 use LojaVirtual\PagarMe\ResponseHandler;
 use LojaVirtual\PagarMe\Settings;
@@ -71,8 +72,9 @@ class AbstractResource
                 );
 
             return new ResponseHandler($response);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+        } catch (ClientException $e) {
+            $response = $e->getResponse();
+            throw new \Exception($response->getBody()->getContents());
         }
     }
 }
