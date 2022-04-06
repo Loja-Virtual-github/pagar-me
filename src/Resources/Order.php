@@ -57,4 +57,27 @@ class Order extends AbstractResource implements ResourceInterface
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * List orders
+     *
+     * @param array $query
+     * @return ResponseHandler
+     * @throws \Exception
+     */
+    public function listOrders(array $query = [])
+    {
+        try {
+            return $this
+                ->request(
+                    self::GET,
+                    self::ENDPOINT,
+                    array(
+                        'query' => $query
+                    )
+                );
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }
