@@ -45,7 +45,8 @@ class AbstractResource
                 "base_uri" => PagarMe::BASE_URI,
                 "headers" => array(
                     "Authorization" => sprintf("Basic %s", Settings::getBasicAuthCode()),
-                    "Content-type" => "application/json"
+                    "Content-type" => "application/json",
+                    "ServiceRefererName" => "62faf8a2f6b3230019fd1f28"
                 )
             ]
         );
